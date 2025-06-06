@@ -13,14 +13,53 @@
         <div class="container_form">
             <form id="crud-form" action="">
                 <label for="title">Cria coluna</label>  
-                <input type="text" name="indefinido" id="cria-coluna">
-                <button class="confirmar-coluna">Confirmar</button>
+                <input type="text" name="indefinido" id="cria-coluna" placeholder="Digite o nome da coluna">
+                <div class="content">
+                    <div class="container-check">
+                        <label class="checkBox">
+                            <input id="ch1" type="checkbox">
+                            <div class="transition"></div>
+                        </label>
+                        <p>Formata Valor</p>
+                    </div>
+                    <div class="container-check">
+                        
+                        <label class="checkBox">
+                            <input id="ch1" type="checkbox">
+                            <div class="transition"></div>
+                        </label>
+                        <p>Numero por extenso</p>
+                    </div>  
+                </div>
+                
+                <button class="confirmar-coluna" id="adiciona-input">Confirmar</button>
             </form>
         </div>
         
-        <form action="">
+        <div class="container_form">
+            
+           <div class="container-select">
+                <select name="tipo-processo" id="option_tipo_mala" class="option-tipo-mala">
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="">MORA CRED E TARIFA</option>
+                </select>
+           </div>
+            
+            <form id="crud-form" action="">
+                <input type="text" name="indefinido" id="recebe-coluna">
+                <button class="confirmar-linha">Confirmar</button>
+            </form>
 
-        </form>
+        </div>
+
     </Section>
     
 </body>
