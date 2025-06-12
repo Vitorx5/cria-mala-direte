@@ -1,9 +1,34 @@
-const getColuna = document.getElementById(".criar-coluna");
+const getColuna = document.getElementById("cria-coluna");
 const getButton = document.getElementById("adiciona-input");
-const recebeColuna = document.getElementById("recebe-coluna");
+const recebeColuna = document.getElementById("crud-form");
 
-getButton.addEventListener("Click",() => {
-    
-    
+const criaColuna = getButton.onclick = () => {
+    event.preventDefault();
 
-});
+    const nomeInput = getColuna.value.trim();
+
+    if(nomeInput === "") {
+        alert("Por favor, preencha o campo.");
+        return;
+    }
+
+    const buttonDelet = document.createElement("button");
+    buttonDelet.textContent = "Deletar";
+    buttonDelet.classList.add("btn-deletar");
+    buttonDelet.onclick = () => {
+        recebeColuna.removeChild(novoInput);
+        recebeColuna.removeChild(buttonDelet);
+        getColuna.value = "";
+    }
+
+    const novoInput = document.createElement("input");
+    novoInput.type = "text";
+    novoInput.name = nomeInput;
+    novoInput.placeholder = nomeInput;
+
+    recebeColuna.appendChild(novoInput);
+    recebeColuna.appendChild(buttonDelet);
+    getColuna.value = "";
+};
+
+criaColuna(); 
