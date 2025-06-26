@@ -16,11 +16,12 @@ const criaColuna = getButton.onclick = () => {
     buttonDelet.textContent = "Deletar";
     buttonDelet.classList.add("btn-deletar");
     buttonDelet.onclick = () => {
-        recebeColuna.removeChild(novoInput);
-        recebeColuna.removeChild(buttonDelet);
-        getColuna.value = "";
+        if(confirm("Você tem certeza que deseja deletar esta coluna?")) {
+            recebeColuna.removeChild(novoInput);
+            recebeColuna.removeChild(buttonDelet);
+            getColuna.value = "";
+        }
     }
-
     const novoInput = document.createElement("input");
     novoInput.type = "text";
     novoInput.name = nomeInput;
