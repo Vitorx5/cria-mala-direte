@@ -9,11 +9,19 @@
     <title>Interface para Mala direta</title>
 </head>
 <body>
-    <Section class="container">
+    <section class="container">
         <div class="container_form">
-            <form class="crud-form" action="">
-                <label for="title">Cria coluna</label>  
-                <input type="text" name="indefinido" class="formata_input " id="cria-coluna" placeholder="Digite o nome da coluna">
+            
+            <form class="crud-form-coluna" action="javascript:void(0);">
+                <label for="cria-coluna">Cria coluna</label>  
+                <input 
+                  type="text" 
+                  name="indefinido" 
+                  class="formata_input" 
+                  id="cria-coluna" 
+                  placeholder="Digite o nome da coluna"
+                  autocomplete="on"
+                >
                 <div class="content">
                     <div class="container-check">                      
                         <label class="checkBox">
@@ -30,20 +38,20 @@
                         <p>Numero por extenso</p>
                     </div>  
                 </div>             
-                <button class="confirmar-coluna formata-btn" id="adiciona-input">Confirmar</button>
+                <button type="button" class="confirmar-coluna formata-btn" id="adiciona-input">Confirmar</button>
             </form>
         </div>     
         <div class="container_form">            
            <div class="container-select">
                 <select name="tipo-processo" id="option_tipo_mala" class="option-tipo-mala">
-                    <option value="">MORA CRED E TARIFA</option>
-                    <option value="">MORA CRED E TARIFA</option>
+                    <option value="mora">MORA CRED E TARIFA</option>
+                    <option value="tarifa">MORA CRED E TARIFA</option>
                 </select>
-           </div>          
-            <form class="crud-form" id="crud-form" action=""></form>
-            <button class="confirmar-linha formata-btn">Confirmar</button>
+            </div>
+            <form class="crud-form" id="crud-form" action="javascript:void(0);"></form>
+            <button class="confirmar-linha formata-btn" type="button">Confirmar</button>
         </div>
-    </Section>
+    </section>
     <script src="src/js/scripit.js"></script>
 </body>
 </html>

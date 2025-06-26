@@ -2,7 +2,7 @@ const getColuna = document.getElementById("cria-coluna");
 const getButton = document.getElementById("adiciona-input");
 const recebeColuna = document.getElementById("crud-form");
 
-const criaColuna = getButton.onclick = () => {
+getButton.onclick = (event) => {
     event.preventDefault();
 
     const nomeInput = getColuna.value.trim();
@@ -12,24 +12,37 @@ const criaColuna = getButton.onclick = () => {
         return;
     }
 
-    const buttonDelet = document.createElement("button");
-    buttonDelet.textContent = "Deletar";
-    buttonDelet.classList.add("btn-deletar");
-    buttonDelet.onclick = () => {
-        if(confirm("Você tem certeza que deseja deletar esta coluna?")) {
-            recebeColuna.removeChild(novoInput);
-            recebeColuna.removeChild(buttonDelet);
-            getColuna.value = "";
-        }
-    }
+    // Cria um container para o input e o botão
+    const container = document.createElement("div");
+    container.classList.add("coluna-container");
+
     const novoInput = document.createElement("input");
     novoInput.type = "text";
     novoInput.name = nomeInput;
     novoInput.placeholder = nomeInput;
 
-    recebeColuna.appendChild(novoInput);
-    recebeColuna.appendChild(buttonDelet);
-    getColuna.value = "";
-};
+    const buttonDelet = document.createElement("button");
+    buttonDelet.type = "button"; // Evita submit do form
+    buttonDelet.textContent = "Deletar";
+    buttonDelet.classList.add("btn-deletar");
 
-criaColuna(); 
+    // Correção: previne bug de foco ao deletar
+    buttonDelet.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+    });
+
+    buttonDelet.onclick = () => {
+        if(confirm("Você tem certeza que deseja deletar esta coluna?")) {
+            recebeColuna.removeChild(container);
+            getColuna.value = "";
+            getColuna.focus();
+        }
+    }
+
+    container.appendChild(novoInput);
+    container.appendChild(buttonDelet);
+    recebeColuna.appendChild(container);
+
+    getColuna.value = "";
+    getColuna.focus();
+};
