@@ -12,7 +12,6 @@ getButton.onclick = (event) => {
         return;
     }
 
-    // Cria um container para o input e o botão
     const container = document.createElement("div");
     container.classList.add("coluna-container");
 
@@ -22,11 +21,10 @@ getButton.onclick = (event) => {
     novoInput.placeholder = nomeInput;
 
     const buttonDelet = document.createElement("button");
-    buttonDelet.type = "button"; // Evita submit do form
+    buttonDelet.type = "button"; 
     buttonDelet.textContent = "Deletar";
     buttonDelet.classList.add("btn-deletar");
 
-    // Correção: previne bug de foco ao deletar
     buttonDelet.addEventListener('pointerdown', (e) => {
       e.preventDefault();
     });
